@@ -35,13 +35,6 @@ const ICON = {
   top: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V6M6 11l6-6 6 6"/></svg>',
 };
 
-const BRAND_MARK = `<svg viewBox="0 0 44 44" fill="none" aria-hidden="true">
-  <circle cx="22" cy="22" r="18.5" stroke="var(--blue)" stroke-width="2.4"/>
-  <circle cx="22" cy="22" r="9" stroke="var(--orange)" stroke-width="1.4" stroke-dasharray="2.4 4"/>
-  <path d="M22 7v30M7 22h30" stroke="var(--orange)" stroke-width="2.4" stroke-linecap="round"/>
-  <circle cx="22" cy="22" r="4.6" fill="var(--blue)"/>
-</svg>`;
-
 const CM_MARK = `<img src="/assets/img/cm-logo.svg" alt="" width="26" height="18" loading="lazy">`;
 
 /* ---------------------------------------------------------------- */
@@ -62,7 +55,7 @@ const NAV = [
 /* ---------------------------------------------------------------- */
 function head({ title, description, path, ogImage }) {
   const url = `${SITE_URL}/${path === 'index.html' ? '' : path}`;
-  const img = ogImage || `${SITE_URL}/assets/img/silvia-miranda-og.jpg`;
+  const img = ogImage || `${SITE_URL}/assets/img/og-image.jpg`;
   return `<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${title}</title>
@@ -111,7 +104,7 @@ function baseGraph(path, label, extra = []) {
       jobTitle: 'Estrategista comercial',
       description: 'Mais de 20 anos de experiência em vendas, operação, gestão de riscos e desenvolvimento de negócios. Criadora do Programa EIXO Comercial.',
       url: `${SITE_URL}/sobre.html`,
-      image: `${SITE_URL}/assets/img/silvia-miranda.jpg`,
+      image: `${SITE_URL}/assets/img/silvia-headshot.jpg`,
       worksFor: { '@id': `${SITE_URL}/#eixo-comercial` },
     },
     {
@@ -137,9 +130,8 @@ function header(activeKey) {
 <div class="scroll-progress" aria-hidden="true"></div>
 <header class="site-header" id="siteHeader">
   <div class="container header-inner">
-    <a href="/index.html" class="brand" aria-label="Programa EIXO Comercial — Início">
-      <span class="brand-mark">${BRAND_MARK}</span>
-      <span class="brand-text"><strong>EIXO&nbsp;Comercial</strong><small>Silvia Miranda</small></span>
+    <a href="/index.html" class="brand" aria-label="Silvia Miranda — Programa EIXO Comercial — Início">
+      <img class="brand-logo" src="/assets/img/logo.svg" alt="Silvia Miranda" width="220" height="56">
     </a>
     <nav class="main-nav" aria-label="Navegação principal">
       <button class="nav-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menu de navegação">
@@ -162,7 +154,7 @@ function footer() {
   return `<footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-col">
-      <div class="footer-brand"><span class="brand-mark" style="width:38px;height:38px;display:block">${BRAND_MARK}</span><strong>EIXO Comercial</strong></div>
+      <div class="footer-brand"><img src="/assets/img/logo-white.svg" alt="Silvia Miranda" width="190" height="48"></div>
       <p>Gestão, lucro e escala com método. Um programa de estruturação empresarial para donos de negócio que querem sair do improviso.</p>
       <a class="btn btn-outline" style="border-color:oklch(100% 0 0 / .3);color:#fff" href="${WA_LINK}" target="_blank" rel="noopener">Falar no WhatsApp ${ICON.arrow}</a>
     </div>
@@ -316,6 +308,35 @@ const FAQ = [
   { q: 'Qual é a política de cancelamento?', a: 'O Programa EIXO Comercial possui prazo e condições definidos em contrato. Nas contratações realizadas pela internet, aplica-se o prazo legal de arrependimento previsto na legislação vigente. Após esse período, as condições seguem o contrato firmado entre as partes.' },
 ];
 
+const ENGAGEMENT_TIERS = [
+  { n: '01', key: 'diagnostico', title: 'EIXO Diagnóstico', stage: 'Entrada', text: 'Mapeamento profundo de gargalos, processos e oportunidades da operação comercial — avalia dependência do dono, gargalos de conversão e uso do CRM.', format: 'Diagnóstico executivo e consultoria pontual.' },
+  { n: '02', key: 'mentoria', title: 'EIXO Mentoria', stage: 'Desenvolvimento', text: 'Silvia direciona e transfere o método. A liderança e a equipe da empresa aplicam a estruturação na própria operação, com acompanhamento próximo.', format: 'Formato: a empresa executa, com direcionamento.' },
+  { n: '03', key: 'consultoria', title: 'EIXO Consultoria', stage: 'Transformação', text: 'Atuação mão na massa. Silvia e sua equipe participam ativamente da reestruturação da máquina comercial, lado a lado com o time do cliente.', format: 'Formato: implementação assistida.' },
+  { n: '04', key: 'advisory', title: 'EIXO Advisory', stage: 'Continuidade', text: 'Acompanhamento executivo de longo prazo, pensado para empresas mais maduras que querem um conselho recorrente para sustentar performance e decisões.', format: 'Formato: acompanhamento contínuo.' },
+];
+
+const JOURNEY = [
+  'Trabalhadora rural',
+  'Professora de História',
+  'Servidora pública',
+  'Especialista em vendas e estruturação comercial',
+];
+
+const ICP_FIT = ['CEO ou diretor(a) de uma PME com faturamento acima de R$ 500 mil por ano.', 'Já possui equipe comercial montada.', 'Sente que a operação é reativa e sem previsibilidade.', 'É o fundador exausto de sustentar o crescimento sozinho no dia a dia.'];
+const ICP_NOT_FIT = ['Empreendedores iniciantes que ainda não validaram o negócio.', 'Psicólogos e profissionais liberais buscando apenas "aprender a vender".', 'Quem procura fórmulas rápidas e genéricas de persuasão e fechamento.'];
+
+const GALLERY = [
+  { img: 'gallery-02-palestra-dellas.jpg', alt: 'Silvia Miranda palestrando no Clube Dellas, com slide de apresentação ao fundo', caption: 'Palestra · Clube Dellas' },
+  { img: 'gallery-01-palco-entrevista.jpg', alt: 'Silvia Miranda no palco sendo entrevistada, com seu nome e "Estrategista Comercial" projetados na tela', caption: 'Palco · Estrategista Comercial' },
+  { img: 'gallery-04-podcast.jpg', alt: 'Silvia Miranda gravando podcast em estúdio', caption: 'Podcast · Hotmart Cast' },
+  { img: 'gallery-06-fire-expo.jpg', alt: 'Silvia Miranda na entrada do evento Hotmart FIRE, na Expominas', caption: 'Hotmart FIRE · Expominas' },
+  { img: 'gallery-05-reuniao.jpg', alt: 'Silvia Miranda em reunião de negócios no Café com Impacto, Casa Baanko', caption: 'Café com Impacto · Casa Baanko' },
+  { img: 'gallery-03-palestra-dellas2.jpg', alt: 'Silvia Miranda gesticulando durante palestra no Clube Dellas', caption: 'Palestra · Clube Dellas' },
+  { img: 'gallery-07-dellas-mesa.jpg', alt: 'Silvia Miranda falando ao microfone em evento de networking', caption: 'Encontro de networking' },
+  { img: 'gallery-09-painel.jpg', alt: 'Silvia Miranda em painel de discussão em conferência de negócios', caption: 'Painel · Conferência Bestseller' },
+  { img: 'gallery-08-craft.jpg', alt: 'Silvia Miranda em conferência de marketing e dados', caption: 'Conferência Craft' },
+];
+
 /* ---------------------------------------------------------------- */
 /* Blocos reutilizáveis                                               */
 /* ---------------------------------------------------------------- */
@@ -414,6 +435,35 @@ function skillsList() {
   return `<ul class="chip-list reveal-stagger">${SKILLS.map((s) => `<li class="chip">${s}</li>`).join('')}</ul>`;
 }
 
+function engagementTiers() {
+  return `<div class="grid grid-4 reveal-stagger">
+${ENGAGEMENT_TIERS.map((t) => `  <div class="tier-card"><span class="tier-stage">${t.stage}</span><p class="tier-num">${t.n}</p><h3>${t.title}</h3><p>${t.text}</p><p class="tier-format">${t.format}</p></div>`).join('\n')}
+</div>`;
+}
+
+function journeyList() {
+  return `<ol class="journey reveal-stagger">${JOURNEY.map((j, i) => `<li><span class="journey-dot">${i + 1}</span><span>${j}</span></li>`).join('')}</ol>`;
+}
+
+function icpCompare() {
+  return `<div class="table-compare reveal-stagger">
+  <div class="compare-col good">
+    <h3>${ICON.check} O EIXO é para você se...</h3>
+    <ul class="list-check">${ICP_FIT.map((f) => `<li>${ICON.check}<span>${f}</span></li>`).join('')}</ul>
+  </div>
+  <div class="compare-col bad">
+    <h3>${ICON.x} Não é para você se...</h3>
+    <ul class="list-check">${ICP_NOT_FIT.map((f) => `<li>${ICON.x}<span>${f}</span></li>`).join('')}</ul>
+  </div>
+</div>`;
+}
+
+function galleryGrid() {
+  return `<div class="gallery-grid reveal-stagger">
+${GALLERY.map((g) => `  <figure class="gallery-item"><img src="/assets/img/${g.img}" alt="${g.alt}" loading="lazy" width="700" height="700"><figcaption>${g.caption}</figcaption></figure>`).join('\n')}
+</div>`;
+}
+
 /* ---------------------------------------------------------------- */
 /* Páginas                                                            */
 /* ---------------------------------------------------------------- */
@@ -429,22 +479,28 @@ pages.push(page({
   main: `
 <section class="hero">
   <div class="hero-blobs" aria-hidden="true"><span></span><span></span><span></span></div>
-  <div class="container hero-grid">
-    <p class="eyebrow hero-kicker">Programa EIXO Comercial</p>
-    <h1 class="reveal">Uma operação comercial que <mark class="hl">vende, lucra e cresce</mark> sem depender de você para tudo.</h1>
-    <p class="lede reveal">Gestão, lucro e escala com método. O Programa EIXO Comercial une marketing, vendas e gestão para transformar empresas que já vendem, mas ainda crescem no improviso, em operações mais previsíveis, lucrativas e preparadas para escalar.</p>
-    <div class="hero-tagline reveal"><span class="bar"></span>Venda previsível · Lucro real · Menos dependência do dono</div>
-    <div class="hero-actions reveal">
-      <a class="btn btn-primary btn-lg" href="${WA_LINK}" target="_blank" rel="noopener">Quero saber mais sobre o EIXO ${ICON.arrow}</a>
-      <a class="btn btn-outline btn-lg" href="/o-programa.html">Conhecer o programa</a>
+  <div class="container hero-grid-photo">
+    <div>
+      <p class="eyebrow hero-kicker">Programa EIXO Comercial</p>
+      <h1 class="reveal">Uma operação comercial que <mark class="hl">vende, lucra e cresce</mark> sem depender de você para tudo.</h1>
+      <p class="lede reveal">Gestão, lucro e escala com método. O Programa EIXO Comercial une marketing, vendas e gestão para transformar empresas que já vendem, mas ainda crescem no improviso, em operações mais previsíveis, lucrativas e preparadas para escalar.</p>
+      <div class="hero-tagline reveal"><span class="bar"></span>Vendas com estrutura. Crescimento com autonomia.</div>
+      <div class="hero-actions reveal">
+        <a class="btn btn-primary btn-lg" href="${WA_LINK}" target="_blank" rel="noopener">Quero saber mais sobre o EIXO ${ICON.arrow}</a>
+        <a class="btn btn-outline btn-lg" href="/o-programa.html">Conhecer o programa</a>
+      </div>
+      <div class="hero-tags reveal">
+        <span class="tag">${ICON.compass} Previsibilidade</span>
+        <span class="tag">${ICON.coin} Lucro real</span>
+        <span class="tag">${ICON.gear} Processos</span>
+      </div>
     </div>
-    <div class="hero-tags reveal">
-      <span class="tag">${ICON.compass} Previsibilidade</span>
-      <span class="tag">${ICON.coin} Lucro real</span>
-      <span class="tag">${ICON.gear} Processos</span>
+    <div class="hero-photo-wrap reveal">
+      <img src="/assets/img/hero-silvia.jpg" alt="Silvia Miranda palestrando sobre estruturação comercial" width="1067" height="1600">
+      <div class="hero-photo-badge"><strong>20+</strong><span>anos estruturando operações comerciais</span></div>
     </div>
-    ${statRow()}
   </div>
+  <div class="container">${statRow()}</div>
 </section>
 
 <section class="section alt">
@@ -492,7 +548,7 @@ pages.push(page({
     </div>
     <div class="bio-grid reveal">
       <div class="bio-photo">
-        <img src="/assets/img/silvia-miranda.jpg" width="900" height="1125" loading="lazy" alt="Silvia Miranda, estrategista comercial e criadora do Programa EIXO Comercial">
+        <img src="/assets/img/silvia-headshot.jpg" width="733" height="1100" loading="lazy" alt="Silvia Miranda, estrategista comercial e criadora do Programa EIXO Comercial">
         <div class="bio-badge"><span class="num">20+</span><span class="label">anos de experiência em vendas e gestão</span></div>
       </div>
       <div>
@@ -587,6 +643,17 @@ ${pageHead({ eyebrow: 'O Programa', title: 'O que é o Programa EIXO Comercial?'
   </div>
 </section>
 
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Como trabalhamos juntos</p>
+      <h2>Quatro formas de aplicar o método, de acordo com o momento da empresa.</h2>
+      <p class="lede">O nível de envolvimento muda conforme a necessidade: da análise inicial até o acompanhamento executivo de longo prazo.</p>
+    </div>
+    ${engagementTiers()}
+  </div>
+</section>
+
 ${ctaBand({ title: 'Quer entender se o EIXO é o próximo passo para sua empresa?', text: 'Fale com Silvia Miranda e solicite seu diagnóstico de aplicação gratuito.' })}
 `,
 }));
@@ -656,11 +723,25 @@ ${pageHead({ eyebrow: 'Para quem é', title: 'Um programa desenhado para quem qu
 
 <section class="section">
   <div class="container">
-    ${fitCompare()}
+    <div class="section-head reveal">
+      <p class="eyebrow">Perfil ideal</p>
+      <h2>O EIXO foi desenhado para donos de PME que já saíram do zero.</h2>
+    </div>
+    ${icpCompare()}
   </div>
 </section>
 
 <section class="section alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Em detalhe</p>
+      <h2>Critérios que ajudam a confirmar se este é o seu momento.</h2>
+    </div>
+    ${fitCompare()}
+  </div>
+</section>
+
+<section class="section">
   <div class="container">
     <div class="section-head center reveal">
       <p class="eyebrow">Ainda com dúvidas?</p>
@@ -683,7 +764,7 @@ pages.push(page({
   navKey: 'sobre',
   title: 'Sobre Silvia Miranda | Estrategista Comercial e Criadora do EIXO',
   description: 'Conheça a trajetória de Silvia Miranda: mais de 20 anos de experiência em vendas, operação e gestão, e mais de R$ 130 milhões em vendas geradas e apoiadas em 17+ segmentos.',
-  ogImage: `${SITE_URL}/assets/img/silvia-miranda-og.jpg`,
+  ogImage: `${SITE_URL}/assets/img/og-image.jpg`,
   crumbLabel: 'Sobre',
   main: `
 ${pageHead({ eyebrow: 'Quem conduz o EIXO', title: 'Silvia Miranda conhece a operação por dentro.', lede: 'Mais de 20 anos de experiência nas áreas comercial, operacional, gestão de riscos e desenvolvimento de negócios.', crumbLabel: 'Sobre' })}
@@ -692,12 +773,13 @@ ${pageHead({ eyebrow: 'Quem conduz o EIXO', title: 'Silvia Miranda conhece a ope
   <div class="container">
     <div class="bio-grid reveal">
       <div class="bio-photo">
-        <img src="/assets/img/silvia-miranda.jpg" width="900" height="1125" loading="lazy" alt="Silvia Miranda, estrategista comercial e criadora do Programa EIXO Comercial">
+        <img src="/assets/img/silvia-headshot.jpg" width="733" height="1100" loading="lazy" alt="Silvia Miranda, estrategista comercial e criadora do Programa EIXO Comercial">
         <div class="bio-badge"><span class="num">130M+</span><span class="label">em vendas geradas e apoiadas</span></div>
       </div>
       <div>
-        <p class="lede">Silvia Miranda possui mais de 20 anos de experiência nas áreas comercial, operacional, gestão de riscos e desenvolvimento de negócios. Ao longo da carreira, participou da geração e do apoio a mais de R$ 130 milhões em vendas, sendo R$ 128 milhões em produtos financeiros.</p>
-        <p class="lede" style="margin-top:16px">Sua experiência em mais de 17 áreas e segmentos ampliou sua capacidade de:</p>
+        <p class="quote-block">Eu profissionalizo a máquina comercial da sua empresa.</p>
+        <p class="lede" style="margin-top:18px">Silvia Miranda possui mais de 20 anos de experiência nas áreas comercial, operacional, gestão de riscos e desenvolvimento de negócios. Ao longo da carreira, participou da geração e do apoio a mais de R$ 130 milhões em vendas, sendo R$ 128 milhões em produtos financeiros.</p>
+        <p class="lede" style="margin-top:14px">Sua experiência em mais de 17 áreas e segmentos ampliou sua capacidade de:</p>
         <div style="margin-top:18px">${skillsList()}</div>
         <p class="lede" style="margin-top:20px">Sua atuação não se limita a vender mais. Ela está concentrada em construir negócios mais organizados, rentáveis e preparados para crescer.</p>
       </div>
@@ -708,13 +790,35 @@ ${pageHead({ eyebrow: 'Quem conduz o EIXO', title: 'Silvia Miranda conhece a ope
 
 <section class="section alt">
   <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Trajetória pessoal</p>
+      <h2>De trabalhadora rural a especialista em estruturação comercial.</h2>
+      <p class="lede" style="margin-inline:auto">Antes de estruturar operações comerciais de outras empresas, Silvia construiu o próprio caminho passando por realidades bem diferentes — o que hoje sustenta sua capacidade de entender negócios de qualquer segmento.</p>
+    </div>
+    ${journeyList()}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <div class="section-head reveal">
-      <p class="eyebrow">Trajetória</p>
+      <p class="eyebrow">Trajetória profissional</p>
       <h2>Negócios diferentes. Uma mesma capacidade de estruturar receita.</h2>
       <p class="lede">Não existe uma fórmula única para mercados diferentes. Existe capacidade de leitura, estratégia e adaptação. Ao longo da trajetória, atuação em operações de crédito, engenharia, turismo, saúde, carreira, educação, franquias, eventos e produtos digitais ampliou a capacidade de identificar gargalos, adaptar processos e tomar decisões comerciais de acordo com a realidade de cada negócio.</p>
     </div>
     ${casesGrid()}
     <p class="lede reveal" style="margin-top:30px;text-align:center">Resultados de operações apoiadas. Os resultados variam conforme mercado, oferta, estrutura, execução e momento de cada empresa.</p>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Bastidores</p>
+      <h2>Onde você já pode ter visto Silvia Miranda.</h2>
+      <p class="lede" style="margin-inline:auto">Palestras, painéis, podcasts e encontros de negócio pelo Brasil.</p>
+    </div>
+    ${galleryGrid()}
   </div>
 </section>
 
