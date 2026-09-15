@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img" aria-label="EIXO">
+  <circle cx="22" cy="22" r="19" fill="none" stroke="#264a73" stroke-width="3"/>
+  <path d="M22 5 V39 M5 22 H39" stroke="#eb8a3c" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="22" cy="22" r="6" fill="#eb8a3c"/>
+</svg>

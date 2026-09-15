@@ -1,0 +1,8 @@
+{
+  "name": "site-silvia-miranda",
+  "private": true,
+  "description": "Site institucional do Programa EIXO Comercial (Silvia Miranda).",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  }
+}
