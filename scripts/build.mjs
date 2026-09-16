@@ -12,6 +12,8 @@ const ROOT = join(__dirname, '..');
 const SITE_URL = 'https://silviamiranda.com.br';
 const WA_LINK = 'https://wa.me/5531983022570?text=Vim%20do%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es';
 const SITE_NAME = 'Programa EIXO Comercial — Silvia Miranda';
+// Bump a cada mudança em style.css/main.js para furar o cache do CDN da Hostinger (7 dias de TTL).
+const ASSET_VERSION = '2';
 
 /* ---------------------------------------------------------------- */
 /* Ícones (SVG inline, sem dependências externas)                    */
@@ -76,7 +78,7 @@ function head({ title, description, path, ogImage }) {
 <meta name="twitter:description" content="${description}">
 <meta name="twitter:image" content="${img}">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="stylesheet" href="/assets/css/style.css">`;
+<link rel="stylesheet" href="/assets/css/style.css?v=${ASSET_VERSION}">`;
 }
 
 function breadcrumbSchema(path, label) {
@@ -185,7 +187,7 @@ function footer() {
   <button class="top-btn" aria-label="Voltar ao topo" type="button">${ICON.top}</button>
   <a class="wa-float" href="${WA_LINK}" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">${ICON.whatsapp}</a>
 </div>
-<script src="/assets/js/main.js"></script>`;
+<script src="/assets/js/main.js?v=${ASSET_VERSION}"></script>`;
 }
 
 function pageHead({ eyebrow, title, lede, crumbLabel }) {
