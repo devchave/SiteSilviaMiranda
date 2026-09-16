@@ -496,7 +496,7 @@ pages.push(page({
       </div>
     </div>
     <div class="hero-photo-wrap reveal">
-      <img src="/assets/img/hero-silvia.jpg" alt="Silvia Miranda palestrando sobre estruturação comercial" width="1067" height="1600">
+      <div class="photo-frame"><img src="/assets/img/hero-silvia.jpg" alt="Silvia Miranda palestrando sobre estruturação comercial" width="1067" height="1600" loading="lazy"></div>
       <div class="hero-photo-badge"><strong>20+</strong><span>anos estruturando operações comerciais</span></div>
     </div>
   </div>
@@ -548,7 +548,7 @@ pages.push(page({
     </div>
     <div class="bio-grid reveal">
       <div class="bio-photo">
-        <img src="/assets/img/silvia-headshot.jpg" width="733" height="1100" loading="lazy" alt="Silvia Miranda, estrategista comercial e criadora do Programa EIXO Comercial">
+        <div class="photo-frame"><img src="/assets/img/silvia-headshot.jpg" width="733" height="1100" loading="lazy" alt="Silvia Miranda, estrategista comercial e criadora do Programa EIXO Comercial"></div>
         <div class="bio-badge"><span class="num">20+</span><span class="label">anos de experiência em vendas e gestão</span></div>
       </div>
       <div>
@@ -773,7 +773,7 @@ ${pageHead({ eyebrow: 'Quem conduz o EIXO', title: 'Silvia Miranda conhece a ope
   <div class="container">
     <div class="bio-grid reveal">
       <div class="bio-photo">
-        <img src="/assets/img/silvia-headshot.jpg" width="733" height="1100" loading="lazy" alt="Silvia Miranda, estrategista comercial e criadora do Programa EIXO Comercial">
+        <div class="photo-frame"><img src="/assets/img/silvia-headshot.jpg" width="733" height="1100" loading="lazy" alt="Silvia Miranda, estrategista comercial e criadora do Programa EIXO Comercial"></div>
         <div class="bio-badge"><span class="num">130M+</span><span class="label">em vendas geradas e apoiadas</span></div>
       </div>
       <div>
